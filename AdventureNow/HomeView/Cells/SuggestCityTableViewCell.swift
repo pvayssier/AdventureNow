@@ -5,7 +5,6 @@
 //  Created by Paul Vayssier on 21/03/2023.
 //
 
-
 import UIKit
 
 final class SuggestCityTableViewCell: UITableViewCell {
@@ -15,6 +14,8 @@ final class SuggestCityTableViewCell: UITableViewCell {
         configureUI()
     }
 
+    var favoriteButton: UIButton = FavoriteButton()
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -22,12 +23,12 @@ final class SuggestCityTableViewCell: UITableViewCell {
     // MARK: - Private Properties
 
     private lazy var backgroundImageView: UIImageView = {
-        let FontScreenImageView = UIImageView()
-        FontScreenImageView.layer.cornerCurve = .continuous
-        FontScreenImageView.clipsToBounds = true
-        FontScreenImageView.contentMode = .scaleAspectFill
+        let fontScreenImageView = UIImageView()
+        fontScreenImageView.layer.cornerCurve = .continuous
+        fontScreenImageView.clipsToBounds = true
+        fontScreenImageView.contentMode = .scaleAspectFill
 
-        return FontScreenImageView
+        return fontScreenImageView
     }()
 
     private lazy var cityNameLabel: UILabel = {
@@ -39,6 +40,7 @@ final class SuggestCityTableViewCell: UITableViewCell {
         name.contentMode = .scaleAspectFill
         name.backgroundColor = .white.withAlphaComponent(0.8)
         name.font = UIFont(name: "Hiragino Sans W6", size: 15)
+        name.textColor = .black
         name.adjustsFontSizeToFitWidth = true
 
         return name
@@ -72,31 +74,6 @@ final class SuggestCityTableViewCell: UITableViewCell {
         return view
     }()
 
-    private lazy var favoriteButton: UIButton = {
-        let button = UIButton(type: .system)
-        let font = UIFont.systemFont(ofSize: 12, weight: .medium)
-
-        var config = UIImage.SymbolConfiguration(font: font)
-        config = config.applying(UIImage.SymbolConfiguration(hierarchicalColor: .black))
-
-        let image = UIImage(
-            systemName: "heart",
-            withConfiguration: config)
-
-        var buttonConf = UIButton.Configuration.plain()
-        buttonConf.image = image
-
-        button.configuration = buttonConf
-
-        button.backgroundColor = .white.withAlphaComponent(0.8)
-        button.clipsToBounds = true
-        button.layer.cornerRadius = 15
-        button.layer.cornerCurve = .continuous
-
-        return button
-    }()
-
-
     // MARK: - Private Methods
 
     private func makeStarsFrom(_ rate: Int) -> [UIImageView] {
@@ -105,39 +82,21 @@ final class SuggestCityTableViewCell: UITableViewCell {
         let starFill = UIImage(systemName: "star.fill")?.applyingSymbolConfiguration(config)
         let star = UIImage(systemName: "star")?.applyingSymbolConfiguration(config)
         var test: [Int] = []
-        var imageViews: [UIImageView] = (0..<rate).map { i in
-            test.append(i)
+        var imageViews: [UIImageView] = (0..<rate).map { indice in
+            test.append(indice)
             let imageView = UIImageView(image: starFill)
             imageView.contentMode = .scaleAspectFit
             imageView.tintColor = .black
             return imageView
         }
-        imageViews.append(contentsOf: (0..<5-rate).map { i in
-            test.append(i)
+        imageViews.append(contentsOf: (0..<5-rate).map { indice in
+            test.append(indice)
             let imageView = UIImageView(image: star)
             imageView.contentMode = .scaleAspectFit
             imageView.tintColor = .black
             return imageView
         })
-        print(test)
         return imageViews
-    }
-
-    private func toggleFavoriteButton(isFavorite: Bool) {
-        let font = UIFont.systemFont(ofSize: 12, weight: .medium)
-        var config = UIImage.SymbolConfiguration(font: font)
-        config = config.applying(UIImage.SymbolConfiguration(hierarchicalColor: .black))
-        if isFavorite {
-            favoriteButton.configuration?.image = UIImage(
-                systemName: "heart.fill",
-                withConfiguration: config
-            )
-        } else {
-            favoriteButton.configuration?.image = UIImage(
-                systemName: "heart",
-                withConfiguration: config
-            )
-        }
     }
 
     private func configureUI() {
@@ -147,17 +106,16 @@ final class SuggestCityTableViewCell: UITableViewCell {
         cityRateContentView.translatesAutoresizingMaskIntoConstraints = false
         rateStackView.translatesAutoresizingMaskIntoConstraints = false
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
+
         contentView.addSubview(backgroundImageView)
         contentView.addSubview(cityNameLabel)
         contentView.addSubview(cityRateContentView)
         contentView.addSubview(favoriteButton)
+
         contentView.clipsToBounds = true
         contentView.layer.cornerCurve = .continuous
         backgroundColor = .clear
         contentView.layer.cornerRadius = 40
-
-
-
 
         NSLayoutConstraint.activate([
             backgroundImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
@@ -187,10 +145,21 @@ final class SuggestCityTableViewCell: UITableViewCell {
         ])
     }
 
-    @objc
-    private func buttonTapped(_ sender: SuggestCityTableViewCell) {
-        // Exécuter l'action souhaitée ici
-        print("Le bouton a été appuyé !")
+    private func toggleFavoriteButton(isFavorite: Bool) {
+        let font = UIFont.systemFont(ofSize: 12, weight: .medium)
+        var config = UIImage.SymbolConfiguration(font: font)
+        config = config.applying(UIImage.SymbolConfiguration(hierarchicalColor: .black))
+        if isFavorite {
+            favoriteButton.configuration?.image = UIImage(
+                systemName: "heart.fill",
+                withConfiguration: config
+            )
+        } else {
+            favoriteButton.configuration?.image = UIImage(
+                systemName: "heart",
+                withConfiguration: config
+            )
+        }
     }
 
     // MARK: Exposed
@@ -200,10 +169,9 @@ final class SuggestCityTableViewCell: UITableViewCell {
     func configure(image: String, name: String, rate: Int, isFavorite: Bool) {
         backgroundImageView.image = UIImage(named: image)
         cityNameLabel.text = name.uppercased()
+        rateStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
         rateStackView.addArrangedSubview(UIStackView(arrangedSubviews: makeStarsFrom(rate)))
         toggleFavoriteButton(isFavorite: isFavorite)
     }
-
-
 
 }

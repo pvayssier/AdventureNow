@@ -11,22 +11,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    static private func makeTabBarController() -> UITabBarController {
+        let tabBarController = UITabBarController(nibName: nil, bundle: nil)
+        tabBarController.setViewControllers(
+            TabItem.allCases.map { $0.navigationController },
+            animated: false
+        )
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else {
-            return
-        }
+        tabBarController.tabBar.backgroundColor = .systemBackground
+        let appearance = UITabBarAppearance()
+        appearance.shadowColor = .clear
+        appearance.shadowImage = nil
+        appearance.backgroundImage = nil
 
-        // Create a new window property
-        self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        tabBarController.tabBar.layer.shadowOffset = .zero
+        tabBarController.tabBar.layer.shadowRadius = 22
+        tabBarController.tabBar.layer.shadowColor = UIColor.black.cgColor
+        tabBarController.tabBar.layer.shadowOpacity = 0.08
+        tabBarController.tabBar.standardAppearance = appearance
+        tabBarController.tabBar.scrollEdgeAppearance = appearance
 
-        // Set windowScene for window
-        self.window?.windowScene = windowScene
+        return tabBarController
+    }
 
-        // Set custom LoginViewController as root
-        window?.rootViewController = HomeTableViewController()
+    func scene(
+        _ scene: UIScene,
+        willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
 
-        // Present the window
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = Self.makeTabBarController()
         window?.makeKeyAndVisible()
     }
 
@@ -34,7 +50,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        // The scene may re-connect later, as its session was not necessarily discarded
+        // (see `application:didDiscardSceneSessions` instead).
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -58,6 +75,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
 }
-

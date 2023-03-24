@@ -7,16 +7,15 @@
 
 import UIKit
 
-
 final class FavoriteButton: UIButton {
     internal init() {
         super.init(frame: .zero)
+        makeFavoriteButton()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 
     private func makeFavoriteButton() {
         let font = UIFont.systemFont(ofSize: 12, weight: .medium)
@@ -41,5 +40,3 @@ final class FavoriteButton: UIButton {
     }
 
 }
-
-

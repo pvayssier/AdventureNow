@@ -6,7 +6,6 @@
 //
 import Foundation
 
-
 final class HomeViewModel {
 
     init() {
@@ -20,25 +19,36 @@ final class HomeViewModel {
     // MARK: - Exposed Methods
 
     func viewDidAppear() {
-        updateFavorites()
+        updateSuggestCity()
     }
-
 
     // MARK: - Private Properties
 
-    
-
     // MARK: - Private Methods
 
-    private func setFavoriteCity(_ favorite: SuggestCity, to value: Bool) {
+    func setFavoriteCity(_ favorite: SuggestCity) {
         if let index = SuggestCity.all.firstIndex(where: { $0.id == favorite.id }) {
-            let favCity = suggestCity[index]
-            suggestCity[index] = SuggestCity(image: favCity.cityImage, name: favCity.cityName, rate: Float(favCity.cityRate), isFavorite: favCity.isFavorite)
-            updateFavorites()
+            let city = suggestCity[index]
+            if city.isFavorite {
+                SuggestCity.all[index] = SuggestCity(
+                    image: city.cityImage,
+                    name: city.cityName,
+                    rate: Float(city.cityRate),
+                    isFavorite: false
+                )
+            } else {
+                SuggestCity.all[index] = SuggestCity(
+                    image: city.cityImage,
+                    name: city.cityName,
+                    rate: Float(city.cityRate),
+                    isFavorite: true
+                )
+            }
+            updateSuggestCity()
         }
     }
 
-    private func updateFavorites() {
+    private func updateSuggestCity() {
         suggestCity = SuggestCity.all
     }
 
