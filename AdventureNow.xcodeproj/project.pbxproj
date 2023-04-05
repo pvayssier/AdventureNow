@@ -19,6 +19,7 @@
 		E2B442AB29CC9E0E00AAA93D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2B442AA29CC9E0E00AAA93D /* Main.storyboard */; };
 		E2B442AD29CCADB600AAA93D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B442AC29CCADB600AAA93D /* HomeViewController.swift */; };
 		E2B4F24F29CB630C007F97F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B4F24E29CB630C007F97F8 /* HomeViewModel.swift */; };
+		E2CCA72029D4E52800B6BE83 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCA71F29D4E52800B6BE83 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E2B442AA29CC9E0E00AAA93D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E2B442AC29CCADB600AAA93D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E2B4F24E29CB630C007F97F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E2CCA71F29D4E52800B6BE83 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		E24099B829C850F100015FEC /* AdventureNow */ = {
 			isa = PBXGroup;
 			children = (
+				E2CCA71E29D4E51600B6BE83 /* Map */,
 				E2B442A429CC9ADF00AAA93D /* PrepareTrip */,
 				E2B4429E29CC99A100AAA93D /* Core */,
 				E291960629CA56D6007CCD55 /* HomeView */,
@@ -131,6 +134,14 @@
 			children = (
 			);
 			path = Ressources;
+			sourceTree = "<group>";
+		};
+		E2CCA71E29D4E51600B6BE83 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E2CCA71F29D4E52800B6BE83 /* MapViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +239,7 @@
 				E291960929CA5795007CCD55 /* SuggestCityTableViewCell.swift in Sources */,
 				E26B864629CBA7890037BDA3 /* FavoriteButton.swift in Sources */,
 				E2B442A929CC9B6E00AAA93D /* TabBarItem.swift in Sources */,
+				E2CCA72029D4E52800B6BE83 /* MapViewController.swift in Sources */,
 				E24099D129C856C400015FEC /* SuggestCityModel.swift in Sources */,
 				E2B442AD29CCADB600AAA93D /* HomeViewController.swift in Sources */,
 				E24099BA29C850F100015FEC /* AppDelegate.swift in Sources */,

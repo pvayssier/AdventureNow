@@ -8,15 +8,9 @@ import Foundation
 
 final class HomeViewModel {
 
-    init() {
+    init() {}
 
-    }
-
-    // MARK: - Exposed Properties
-
-    private(set) lazy var suggestCity: [SuggestCity] = SuggestCity.all
-
-    // MARK: - Exposed Methods
+    // MARK: - Life Ciycle
 
     func viewDidAppear() {
         updateSuggestCity()
@@ -24,7 +18,15 @@ final class HomeViewModel {
 
     // MARK: - Private Properties
 
+    private(set) lazy var suggestCity: [SuggestCity] = SuggestCity.all
+
     // MARK: - Private Methods
+
+    private func updateSuggestCity() {
+        suggestCity = SuggestCity.all
+    }
+
+    // MARK: - Exposed Methods
 
     func setFavoriteCity(_ favorite: SuggestCity) {
         if let index = SuggestCity.all.firstIndex(where: { $0.id == favorite.id }) {
@@ -46,10 +48,6 @@ final class HomeViewModel {
             }
             updateSuggestCity()
         }
-    }
-
-    private func updateSuggestCity() {
-        suggestCity = SuggestCity.all
     }
 
 }

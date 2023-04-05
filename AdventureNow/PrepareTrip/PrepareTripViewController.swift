@@ -11,6 +11,13 @@ class PrepareTripViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
+    }
+
+    private func configureUI() {
+        view.backgroundColor = .white
+        let content = UIView()
+        content.translatesAutoresizingMaskIntoConstraints = false
     }
     /*
     // MARK: - Navigation
