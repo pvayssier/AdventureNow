@@ -68,7 +68,7 @@ class CityInformationTableViewController: UITableViewController {
             long: Double,
             completion: @escaping (Result<[WeatherData], Error>) -> Void
         ) {
-            let key = "edadbe4fa6a2043def832d9375b43f8e"
+            let key = ""
             guard let url = URL(
     string: "https://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(long)&units=metric&appid=\(key)"
             ) else {
