@@ -19,13 +19,15 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewModel.viewDidLoad()
         configureUI()
     }
 
     func viewDidAppear() {
         super.viewDidAppear(true)
-        configureUI()
+        viewModel.viewDidAppear()
+        tableView.reloadData()
+
     }
 
     // MARK: - Private Properties
@@ -51,54 +53,23 @@ class HomeViewController: UIViewController {
             SuggestCityTableViewCell.self,
             forCellReuseIdentifier: SuggestCityTableViewCell.reuseIdentifier
         )
+        tableView.backgroundColor = view.backgroundColor
         tableView.delaysContentTouches = false
-        tableView.layer.cornerCurve = .continuous
-        tableView.layer.cornerRadius = 40
-        tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: -21, left: 0, bottom: 0, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.keyboardDismissMode = .onDrag
 
         return tableView
     }()
 
-    private lazy var searchTextField: UITextField = {
-//        let textField = UITextField()
-//        textField.placeholder = "Rechercher"
-//        textField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-//        textField.layer.cornerCurve = .continuous
-//        textField.layer.cornerRadius = 15
-//        textField.layer.borderWidth = 2
-//        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: 25))
-//        textField.leftView = paddingView
-//        textField.backgroundColor = tableView.backgroundColor
-//        textField.leftViewMode = .always
+    private lazy var searchBar: UISearchBar = {
 
-        let searchTextField = UITextField(frame: CGRect(x: 0, y: 0, width: view.frame.width - 20, height: 36))
-
-        // Ajout d'une marge à gauche pour la loupe
-        searchTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
-        searchTextField.leftViewMode = .always
-
-        // Configuration de l'icône de loupe
-        let magnifyingGlass = UIImageView(image: UIImage(systemName: "magnifyingglass"))
-        magnifyingGlass.tintColor = .gray
-        searchTextField.leftView?.addSubview(magnifyingGlass)
-        magnifyingGlass.center = searchTextField.leftView!.center
-
-        // Configuration du style de la bordure et du coin arrondi
-        searchTextField.borderStyle = .roundedRect
-        searchTextField.layer.cornerRadius = 15
-        searchTextField.layer.masksToBounds = true
-
-        // Configuration des couleurs de fond et de texte
-        searchTextField.layer.borderWidth = 2
-        searchTextField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.4)
-        searchTextField.textColor = .black
-
-        // Configuration du placeholder
-        searchTextField.placeholder = "Rechercher"
-
-        return searchTextField
+        let searchBar = UISearchBar()
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.barTintColor = view.backgroundColor
+        searchBar.clipsToBounds = true
+        searchBar.placeholder = "Rechercher"
+        return searchBar
     }()
 
     // MARK: - Private Methods
@@ -109,21 +80,19 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         view.addSubview(tableView)
-        view.addSubview(searchTextField)
+        view.addSubview(searchBar)
 
-        searchTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
 
-            searchTextField.topAnchor.constraint(equalTo: tableView.topAnchor, constant: 30),
-            searchTextField.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: 60),
-            searchTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
-            searchTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -150)
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            searchBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+            searchBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+            searchBar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
         ])
-//        view.clipsToBounds = true
         navigationController?.navigationBar.isHidden = true
     }
 
@@ -150,7 +119,8 @@ extension HomeViewController: UITableViewDataSource {
             image: city.cityImage,
             name: city.cityName,
             rate: city.cityRate,
-            isFavorite: city.isFavorite
+            isFavorite: false,
+            id: city.id
         )
 
         cell.favoriteButton.addTarget(self, action: #selector(didTapFavoriteButton(sender:)), for: .touchUpInside)
@@ -166,6 +136,15 @@ extension HomeViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         170
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let city = viewModel.suggestCity[indexPath.section]
+        let viewController = CityInformationTableViewController(city: city)
+        viewController.navigationItem.title = city.cityName
+        viewController.navigationController?.navigationBar.prefersLargeTitles = false
+        let navigationController = UINavigationController(rootViewController: viewController)
+        present(navigationController, animated: true)
     }
 
 }

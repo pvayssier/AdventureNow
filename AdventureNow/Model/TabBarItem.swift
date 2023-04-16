@@ -6,13 +6,11 @@
 //
 
 import Foundation
-
 import UIKit
 
 enum TabItem: Int, CaseIterable {
     case home
-    case prepareTrip
-    case map
+    case favorites
 
     var navigationController: UINavigationController {
         switch self {
@@ -20,13 +18,9 @@ enum TabItem: Int, CaseIterable {
             return makeNavigationViewController(
                 rootViewController: HomeViewController(viewModel: HomeViewModel())
             )
-        case .prepareTrip:
+        case .favorites:
             return makeNavigationViewController(
-                rootViewController: PrepareTripViewController()
-            )
-        case .map:
-            return makeNavigationViewController(
-                rootViewController: MapViewController()
+                rootViewController: FavoritesTableViewController(viewModel: FavoritesViewModel())
             )
         }
     }
@@ -34,8 +28,7 @@ enum TabItem: Int, CaseIterable {
     var image: UIImage? {
         switch self {
         case .home:     return UIImage(systemName: "building.2.crop.circle.fill")
-        case .prepareTrip:      return UIImage(systemName: "house.circle")
-        case .map:      return UIImage(systemName: "map.fill")
+        case .favorites:      return UIImage(systemName: "heart.fill")
         }
     }
 

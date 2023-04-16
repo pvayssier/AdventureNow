@@ -145,6 +145,8 @@ final class SuggestCityTableViewCell: UITableViewCell {
         ])
     }
 
+    var cityId: UUID = UUID()
+
     private func toggleFavoriteButton(isFavorite: Bool) {
         let font = UIFont.systemFont(ofSize: 12, weight: .medium)
         var config = UIImage.SymbolConfiguration(font: font)
@@ -166,12 +168,13 @@ final class SuggestCityTableViewCell: UITableViewCell {
 
     static let reuseIdentifier = String(describing: SuggestCityTableViewCell.self)
 
-    func configure(image: String, name: String, rate: Int, isFavorite: Bool) {
+    func configure(image: String, name: String, rate: Int, isFavorite: Bool, id: UUID) {
         backgroundImageView.image = UIImage(named: image)
         cityNameLabel.text = name.uppercased()
         rateStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
         rateStackView.addArrangedSubview(UIStackView(arrangedSubviews: makeStarsFrom(rate)))
         toggleFavoriteButton(isFavorite: isFavorite)
+        cityId = id
     }
 
 }

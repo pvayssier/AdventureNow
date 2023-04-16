@@ -1,50 +1,45 @@
 //
-//  MapViewController.swift
+//  MapCell.swift
 //  AdventureNow
 //
-//  Created by Paul Vayssier on 29/03/2023.
+//  Created by Paul Vayssier on 11/04/2023.
 //
 
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
-    internal init(city: String) {
-        self.city = city
-        super.init(nibName: nil, bundle: nil)
+class CityMapCell: UITableViewCell {
+
+    static let reuseIdentifier = String(describing: CityMapCell.self)
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        configureUI()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    let mapView = MKMapView()
-    private var city: String
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureUI()
-    }
+    private lazy var mapView = MKMapView()
 
     private func configureUI() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(mapView)
+        contentView.addSubview(mapView)
+        mapView.isUserInteractionEnabled = false
 
-        let closeButton = UIBarButtonItem(title: "Fermer", style: .done, target: self, action: #selector(closeMap))
+        contentView.clipsToBounds = true
+        backgroundColor = .clear
+        contentView.layer.cornerRadius = 40
+        selectionStyle = .none
 
         NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: view.topAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            mapView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            mapView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            mapView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
-        self.navigationItem.leftBarButtonItem = closeButton
-
-        configureMapView(cityName: city)
-    }
-
-    @objc private func closeMap() {
-        self.dismiss(animated: true, completion: nil)
     }
 
     private func configureMapView(cityName: String) {
@@ -61,5 +56,9 @@ class MapViewController: UIViewController {
             let region = MKCoordinateRegion(center: coordinate, span: span)
             self.mapView.setRegion(region, animated: false)
         }
+    }
+
+    func configure(cityName: String) {
+        configureMapView(cityName: cityName)
     }
 }
