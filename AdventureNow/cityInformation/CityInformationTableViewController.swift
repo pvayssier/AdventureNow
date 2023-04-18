@@ -47,7 +47,7 @@ class CityInformationTableViewController: UITableViewController {
         tableView.register(FullImageCell.self, forCellReuseIdentifier: FullImageCell.reuseIdentifier)
         tableView.register(CityMapCell.self, forCellReuseIdentifier: CityMapCell.reuseIdentifier)
         tableView.register(WeatherForecastCell.self, forCellReuseIdentifier: WeatherForecastCell.reuseIdentifier)
-        tableView.backgroundColor = UIColor(rgb: 0xf2ddbd)
+        tableView.backgroundColor = UIColor(named: "backgroundColor")
         tableView.delaysContentTouches = false
 
         let closeButton = UIBarButtonItem(title: "Fermer", style: .done, target: self, action: #selector(closeMap))

@@ -16,7 +16,6 @@
 		E24099C329C850F200015FEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E24099C229C850F200015FEC /* Assets.xcassets */; };
 		E24099C629C850F200015FEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24099C429C850F200015FEC /* LaunchScreen.storyboard */; };
 		E24099D129C856C400015FEC /* SuggestCityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24099D029C856C400015FEC /* SuggestCityModel.swift */; };
-		E25822FF29DDB42C0090DBF9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E25822FE29DDB42C0090DBF9 /* Kingfisher */; };
 		E258230229DE06B20090DBF9 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258230129DE06B20090DBF9 /* FavoritesTableViewController.swift */; };
 		E2604C2A29E6AB3B009FF50E /* WeatherForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2604C2929E6AB3B009FF50E /* WeatherForecastCell.swift */; };
 		E26282E629EEAFB4001BDD2C /* DestinationAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26282E529EEAFB4001BDD2C /* DestinationAPIService.swift */; };
@@ -72,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E25822FF29DDB42C0090DBF9 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +233,6 @@
 			);
 			name = AdventureNow;
 			packageProductDependencies = (
-				E25822FE29DDB42C0090DBF9 /* Kingfisher */,
 			);
 			productName = AdventureNow;
 			productReference = E24099B629C850F100015FEC /* AdventureNow.app */;
@@ -481,8 +478,10 @@
 				DEVELOPMENT_TEAM = 3ZD277H8K2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AdventureNow/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AdventureNow;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = Resssources/LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -490,7 +489,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.paulvayssier.AdventureNow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -512,8 +511,10 @@
 				DEVELOPMENT_TEAM = 3ZD277H8K2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AdventureNow/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AdventureNow;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = Resssources/LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -521,7 +522,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.paulvayssier.AdventureNow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -566,14 +567,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E25822FE29DDB42C0090DBF9 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E25822FD29DDB42C0090DBF9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E26282E729EEDC63001BDD2C /* FavoritesCitiesDataBase.xcdatamodeld */ = {

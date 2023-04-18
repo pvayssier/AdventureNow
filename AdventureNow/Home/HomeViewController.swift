@@ -85,7 +85,7 @@ class HomeViewController: UIViewController {
     // MARK: - Private Methods
 
     private func configureUI() {
-        view.backgroundColor = UIColor(rgb: 0xf2ddbd)
+        view.backgroundColor = UIColor(named: "backgroundColor")
 
         tableView.dataSource = self
         tableView.delegate = self

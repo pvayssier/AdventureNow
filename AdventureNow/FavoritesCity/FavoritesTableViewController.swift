@@ -53,7 +53,8 @@ class FavoritesTableViewController: UITableViewController {
             forCellReuseIdentifier: FavoriteCitiesCell.reuseIdentifier
         )
         tableView.delaysContentTouches = false
-        tableView.backgroundColor = UIColor(rgb: 0xf2ddbd)
+        tableView.backgroundColor = UIColor(named: "backgroundColor")
+//        navigationController?.navigationBar.isHidden = true
     }
 
     // MARK: - TableView DataSource
