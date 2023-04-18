@@ -27,20 +27,15 @@ class CityInformationTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getWeatherForecast(lat: city.latitude, long: city.longitude) { result in
+        getWeatherForecast(lat: city.latitude, long: city.longitude) { forecast in
             DispatchQueue.main.async {
-                switch result {
-                case .success(let forecast):
-                    forecast.compactMap { [weak self] (list) -> Void in
-                        guard let self = self else { return }
-                        if list.dt_txt.dropFirst(list.dt_txt.count-8) == "12:00:00" && self.threeDaysForecast.count < 3 {
-                            self.threeDaysForecast.append(list)
-                        }
+                _ = forecast.compactMap { [weak self] (list) -> Void in
+                    guard let self = self else { return }
+                    if list.dtTxt.dropFirst(list.dtTxt.count-8) == "12:00:00" && self.threeDaysForecast.count < 3 {
+                        self.threeDaysForecast.append(list)
                     }
-                    self.tableView.reloadData()
-                case .failure(let error):
-                    print(error)
                 }
+                self.tableView.reloadData()
             }
         }
     }
@@ -66,35 +61,35 @@ class CityInformationTableViewController: UITableViewController {
     private func getWeatherForecast(
             lat: Double,
             long: Double,
-            completion: @escaping (Result<[WeatherData], Error>) -> Void
+            completionHandler: @escaping ([WeatherData]) -> Void
         ) {
-            let key = ""
+            let key = "edadbe4fa6a2043def832d9375b43f8e"
             guard let url = URL(
     string: "https://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(long)&units=metric&appid=\(key)"
             ) else {
-                completion(.failure(NSError(domain: "Invalid url", code: -1, userInfo: nil)))
+                print(NSError(domain: "Invalid url", code: -1, userInfo: nil))
                 return
             }
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if let error = error {
-                    completion(.failure(error))
+                    print(error)
                     return
                 }
                 guard let data = data else {
-                    completion(.failure(NSError(domain: "Invalid data", code: -1, userInfo: nil)))
+                    print(NSError(domain: "Invalid data", code: -1, userInfo: nil))
                     return
                 }
                 do {
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .secondsSince1970
-                    let response = try decoder.decode(Welcome7.self, from: data)
+                    let response = try decoder.decode(WeatherDecodeModel.self, from: data)
                     let weatherData: [WeatherData] = response.list.map {
-                        return WeatherData(temp: $0.main.temp, dt_txt: $0.dt_txt, icon: $0.weather[0].icon)
+                        return WeatherData(temp: $0.main.temp, dtTxt: $0.dtTxt, icon: $0.weather[0].icon)
                     }
-                    completion(.success(weatherData))
+                    completionHandler(weatherData)
                 } catch {
                     print(error)
-                    completion(.failure(error))
+                    return
                 }
             }
             task.resume()
@@ -147,7 +142,9 @@ class CityInformationTableViewController: UITableViewController {
             else { return UITableViewCell() }
             cell.configure(
                 image: threeDaysForecast[indexPath.row].icon,
-                date: String(describing: threeDaysForecast[indexPath.row].dt_txt.dropLast(threeDaysForecast[indexPath.row].dt_txt.count - 10)),
+                date: String(
+                    threeDaysForecast[indexPath.row].dtTxt.dropLast(
+                    threeDaysForecast[indexPath.row].dtTxt.count - 10)),
                 temperature: threeDaysForecast[indexPath.row].temp
             )
 
@@ -177,128 +174,37 @@ class CityInformationTableViewController: UITableViewController {
 
 }
 
-struct WeatherData { // swiftlint:disable identifier_name
+private struct WeatherData {
     let temp: Double
-    let dt_txt: String
+    let dtTxt: String
     let icon: String
 }
 
-struct Welcome7: Codable {
-    let cod: String
-    let message, cnt: Int
+private struct WeatherDecodeModel: Codable {
     let list: [List]
-    let city: City
-}
-
-// MARK: - City
-struct City: Codable {
-    let id: Int
-    let name: String
-    let coord: Coord
-    let country: String
-    let population, timezone, sunrise, sunset: Int
-}
-
-// MARK: - Coord
-struct Coord: Codable {
-    let lat, lon: Double
 }
 
 // MARK: - List
-struct List: Codable { // swiftlint:disable identifier_name
-    let dt: Int
+private struct List: Codable {
     let main: MainClass
     let weather: [Weather]
-    let clouds: Clouds
-    let wind: Wind
-    let visibility: Int
-    let pop: Double
-    let rain: Rain?
-    let sys: Sys
-    let dt_txt: String
-}
+    let dtTxt: String
 
-// MARK: - Clouds
-struct Clouds: Codable {
-    let all: Int
-}
-
-// MARK: - MainClass
-struct MainClass: Codable {
-    let temp, feels_like, temp_min, temp_max: Double
-    let pressure, sea_level, grnd_level, humidity: Int
-    let temp_kf: Double
-}
-
-// MARK: - Rain
-struct Rain: Codable {
-    let the3H: Double
-    enum CodingKeys: String, CodingKey, Codable {
-        case the3H = "3h"
+    private enum CodingKeys: String, CodingKey {
+        case main
+        case weather
+        case dtTxt = "dt8_txt"
     }
 }
 
-// MARK: - Sys
-struct Sys: Codable {
-    let pod: String
+private struct MainClass: Codable {
+    let temp: Double
 }
 
 // MARK: - Weather
-struct Weather: Codable {
+private struct Weather: Codable {
     let id: Int
     let main: String
     let description: String
     let icon: String
 }
-
-// MARK: - Wind
-struct Wind: Codable {
-    let speed: Double
-    let deg: Int
-    let gust: Double
-}
-
-
-//struct WeatherResponse: Codable {
-//    let cod: String?
-//    let message: Int?
-//    let cnt: Int?
-//    let list: [WeatherForecast]
-//    let city: String?
-//    let country: String?
-//}
-//
-//struct WeatherForecast: Codable { // swiftlint:disable identifier_name
-//    let dt: TimeInterval?
-//    let main: Main
-//    let weather: [Weather]
-//    let clouds: String?
-//    let wind: Wind
-//    let visibility: String?
-//    let sys: String?
-//    let dt_txt: String
-//}
-//
-//struct Main: Codable {
-//    let temp: Double
-//    let feels_like: Double?
-//    let temp_min: Double?
-//    let temp_max: Double?
-//    let pressure: Int?
-//    let sea_level: Int?
-//    let grnd_level: Int?
-//    let humidity: Double?
-//    let temp_kf: Double?
-//}
-//
-//struct Weather: Codable {
-//    let id: Int?
-//    let main: String?
-//    let description: String?
-//    let icon: String
-//}
-//
-//struct Wind: Codable {
-//    let speed: Double?
-//    let deg: Double?
-//}

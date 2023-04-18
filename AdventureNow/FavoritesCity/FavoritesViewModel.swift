@@ -19,18 +19,18 @@ final class FavoritesViewModel {
 
     // MARK: - Private Properties
 
-    private(set) lazy var favoriteCities: [FavoriteCities] = FavoriteCities.all
+    private(set) lazy var favoriteCities: [SuggestCity] = SuggestCity.all
 
     // MARK: - Private Methods
 
     private func updateFavorites() {
-        favoriteCities = FavoriteCities.all
+        favoriteCities = SuggestCity.all
     }
 
     // MARK: - Exposed Methods
 
     func removeFavoriteCity(at cityId: UUID) {
-        FavoriteCities.all = favoriteCities.filter({$0.id != cityId})
+        SuggestCity.all = favoriteCities.filter({$0.id != cityId})
     }
 
 }

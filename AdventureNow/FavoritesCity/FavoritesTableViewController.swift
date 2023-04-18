@@ -91,4 +91,13 @@ class FavoritesTableViewController: UITableViewController {
         170
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let city = viewModel.favoriteCities[indexPath.section]
+        let viewController = CityInformationTableViewController(city: city)
+        viewController.navigationItem.title = city.cityName
+        viewController.navigationController?.navigationBar.prefersLargeTitles = false
+        let navigationController = UINavigationController(rootViewController: viewController)
+        present(navigationController, animated: true)
+    }
+
 }

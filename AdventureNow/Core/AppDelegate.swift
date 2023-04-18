@@ -10,11 +10,29 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        // Override point for customization after application launch.
+
+        let loadingScreen = UIView(frame: UIScreen.main.bounds)
+        loadingScreen.backgroundColor = .white
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        activityIndicator.center = loadingScreen.center
+        loadingScreen.addSubview(activityIndicator)
+        window?.addSubview(loadingScreen)
+        if window == nil {
+            print("hello")
+        }
+        activityIndicator.startAnimating()
+        let destinationsAPIService = DestinationAPIService()
+        destinationsAPIService.fetch {
+            print("a")
+            activityIndicator.stopAnimating()
+            loadingScreen.removeFromSuperview()
+        }
         return true
     }
 

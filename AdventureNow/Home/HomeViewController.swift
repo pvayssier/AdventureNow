@@ -17,10 +17,31 @@ class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    private var loaderView: UIView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        showLoadingView()
         viewModel.viewDidLoad()
+        hideLoadingView()
         configureUI()
+    }
+
+    private func showLoadingView() {
+        let loaderView = UIView(frame: UIScreen.main.bounds)
+        loaderView.backgroundColor = .white
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        activityIndicator.center = loaderView.center
+        loaderView.addSubview(activityIndicator)
+        view.addSubview(loaderView)
+        activityIndicator.startAnimating()
+
+        self.loaderView = loaderView
+    }
+
+    private func hideLoadingView() {
+        loaderView?.removeFromSuperview()
+        loaderView = nil
     }
 
     func viewDidAppear() {
@@ -42,7 +63,7 @@ class HomeViewController: UIViewController {
         let button = sender
         if button == cell.favoriteButton {
             let city = viewModel.suggestCity[indexPath.section]
-            viewModel.setFavoriteCity(city)
+            viewModel.didTapFavoriteButton(city)
             tableView.reloadData()
         }
     }
@@ -55,21 +76,10 @@ class HomeViewController: UIViewController {
         )
         tableView.backgroundColor = view.backgroundColor
         tableView.delaysContentTouches = false
-        tableView.contentInset = UIEdgeInsets(top: -21, left: 0, bottom: 0, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.keyboardDismissMode = .onDrag
 
         return tableView
-    }()
-
-    private lazy var searchBar: UISearchBar = {
-
-        let searchBar = UISearchBar()
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.barTintColor = view.backgroundColor
-        searchBar.clipsToBounds = true
-        searchBar.placeholder = "Rechercher"
-        return searchBar
     }()
 
     // MARK: - Private Methods
@@ -80,20 +90,27 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         view.addSubview(tableView)
-        view.addSubview(searchBar)
+
+        let closeButton = UIBarButtonItem(
+            image: UIImage(systemName: "arrow.counterclockwise"),
+            style: .done,
+            target: self,
+            action: #selector(didReloadDataButtonPressed)
+        )
+
+        self.navigationItem.rightBarButtonItem = closeButton
 
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            searchBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
-            searchBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-            searchBar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
-        navigationController?.navigationBar.isHidden = true
+
+    }
+    @objc private func didReloadDataButtonPressed() {
+        viewModel.viewDidAppear()
+        tableView.reloadData()
     }
 
 }
