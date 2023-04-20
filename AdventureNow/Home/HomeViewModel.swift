@@ -13,43 +13,54 @@ final class HomeViewModel {
     // MARK: - Life Ciycle
 
     func viewDidLoad() {
-        updateSuggestCity()
+        refreshDestinations()
     }
 
     func viewDidAppear() {
-        updateSuggestCity()
+        refreshDestinations()
     }
 
     // MARK: - Private Properties
 
-    private(set) lazy var suggestCity: [SuggestCity] = SuggestCity.all
+    private(set) lazy var suggestCity: [SuggestCity] = DestinationAPIService.shared.suggestedCities
 
     // MARK: - Private Methods
 
-    private func updateSuggestCity() {
-        suggestCity = SuggestCity.all
+    func refreshDestinations() {
+        suggestCity = DestinationAPIService.shared.suggestedCities
     }
 
-    private func getFavorites() -> [FavoriteCities] {
-        return FavoriteCities.all
+    private func getFavorites() -> [SuggestCity] {
+        return DestinationAPIService.shared.suggestedCities.filter(\.isFavorite)
     }
 
     // MARK: - Exposed Methods
 
     func didTapFavoriteButton(_ favorite: SuggestCity) {
-        if let index = SuggestCity.all.firstIndex(where: { $0.id == favorite.id }) {
+        if let index = DestinationAPIService.shared.suggestedCities.firstIndex(where: { $0.id == favorite.id }) {
             let city = suggestCity[index]
-            if FavoriteCities.all.first(where: {$0.cityName == city.cityName}) != nil {
-                FavoriteCities.all.append(FavoriteCities(
+            if city.isFavorite {
+                DestinationAPIService.shared.suggestedCities[index] = SuggestCity(
+                    apiID: city.apiID,
                     image: city.cityImage,
                     name: city.cityName,
-                    rate: Float(city.cityRate),
+                    rate: Double(city.cityRate),
                     latitude: city.latitude,
-                    longitude: city.longitude
-                ))
+                    longitude: city.longitude,
+                    isFavorite: false
+                )
             } else {
-                FavoriteCities.all = FavoriteCities.all.filter({$0.cityName != city.cityName})
+                DestinationAPIService.shared.suggestedCities[index] = SuggestCity(
+                    apiID: city.apiID,
+                    image: city.cityImage,
+                    name: city.cityName,
+                    rate: Double(city.cityRate),
+                    latitude: city.latitude,
+                    longitude: city.longitude,
+                    isFavorite: true
+                )
             }
         }
+        refreshDestinations()
     }
 }

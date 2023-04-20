@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FavoriteCitiesCell: UITableViewCell {
+final class FavoritesCitiesCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -158,7 +158,7 @@ final class FavoriteCitiesCell: UITableViewCell {
 
     // MARK: Exposed
 
-    static let reuseIdentifier = String(describing: FavoriteCitiesCell.self)
+    static let reuseIdentifier = String(describing: FavoritesCitiesCell.self)
 
     func configure(image: String, name: String, rate: Int, id: UUID) {
         backgroundImageView.image = UIImage(named: image)

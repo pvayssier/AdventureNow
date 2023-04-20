@@ -7,9 +7,9 @@
 
 import CoreData
 
-class CoreDataStack {
+class DatabaseService {
 
-    static let shared = CoreDataStack()
+    static let shared = DatabaseService()
 
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "FavoritesCities")
@@ -35,5 +35,4 @@ class CoreDataStack {
             }
         }
     }
-
 }

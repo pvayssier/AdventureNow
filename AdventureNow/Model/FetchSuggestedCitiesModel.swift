@@ -19,7 +19,7 @@ class FetchSuggestedDestinations {
                 return
             }
 
-            let loginString = "3890b8185885d44193dd617dff841a5a:df6d21a9baf7d3e695ba1657ba47399b"
+            let loginString = ""
             let loginData = loginString.data(using: .utf8)!
             let base64LoginString = loginData.base64EncodedString()
 

@@ -17,22 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
 
-        let loadingScreen = UIView(frame: UIScreen.main.bounds)
-        loadingScreen.backgroundColor = .white
-        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-        activityIndicator.center = loadingScreen.center
-        loadingScreen.addSubview(activityIndicator)
-        window?.addSubview(loadingScreen)
-        if window == nil {
-            print("hello")
-        }
-        activityIndicator.startAnimating()
-        let destinationsAPIService = DestinationAPIService()
-        destinationsAPIService.fetch {
-            print("a")
-            activityIndicator.stopAnimating()
-            loadingScreen.removeFromSuperview()
-        }
+        let destinationsAPIService = DestinationAPIService.shared
+        destinationsAPIService.fetchSuggestedCities()
         return true
     }
 

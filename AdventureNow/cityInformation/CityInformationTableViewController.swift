@@ -52,6 +52,8 @@ class CityInformationTableViewController: UITableViewController {
 
         let closeButton = UIBarButtonItem(title: "Fermer", style: .done, target: self, action: #selector(closeMap))
         self.navigationItem.leftBarButtonItem = closeButton
+
+        tableView.isScrollEnabled = false
     }
 
     @objc private func closeMap() {
@@ -63,7 +65,7 @@ class CityInformationTableViewController: UITableViewController {
             long: Double,
             completionHandler: @escaping ([WeatherData]) -> Void
         ) {
-            let key = "edadbe4fa6a2043def832d9375b43f8e"
+            let key = ""
             guard let url = URL(
     string: "https://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(long)&units=metric&appid=\(key)"
             ) else {
@@ -139,7 +141,7 @@ class CityInformationTableViewController: UITableViewController {
                 withIdentifier: WeatherForecastCell.reuseIdentifier,
                 for: indexPath) as? WeatherForecastCell,
                   !threeDaysForecast.isEmpty
-            else { return UITableViewCell() }
+            else { return WeatherForecastCell(style: .default, reuseIdentifier: WeatherForecastCell.reuseIdentifier) }
             cell.configure(
                 image: threeDaysForecast[indexPath.row].icon,
                 date: String(
@@ -193,7 +195,7 @@ private struct List: Codable {
     private enum CodingKeys: String, CodingKey {
         case main
         case weather
-        case dtTxt = "dt8_txt"
+        case dtTxt = "dt_txt"
     }
 }
 

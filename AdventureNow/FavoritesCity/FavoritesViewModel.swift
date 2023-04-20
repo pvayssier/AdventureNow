@@ -14,23 +14,35 @@ final class FavoritesViewModel {
     // MARK: - Life Ciycle
 
     func viewDidAppear() {
-        updateFavorites()
+        refreshFavorites()
     }
 
     // MARK: - Private Properties
 
-    private(set) lazy var favoriteCities: [SuggestCity] = SuggestCity.all
+    private(set) lazy var favoriteCities: [SuggestCity] = DestinationAPIService.shared.suggestedCities.filter( {$0.isFavorite == true})
 
     // MARK: - Private Methods
 
-    private func updateFavorites() {
-        favoriteCities = SuggestCity.all
+    func refreshFavorites() {
+        favoriteCities = DestinationAPIService.shared.suggestedCities.filter( {$0.isFavorite == true})
     }
 
     // MARK: - Exposed Methods
 
     func removeFavoriteCity(at cityId: UUID) {
-        SuggestCity.all = favoriteCities.filter({$0.id != cityId})
+        if let index = DestinationAPIService.shared.suggestedCities.firstIndex(where: { $0.id == cityId }) {
+            let city = DestinationAPIService.shared.suggestedCities[index]
+            DestinationAPIService.shared.suggestedCities[index] = SuggestCity(
+                apiID: city.apiID,
+                image: city.cityImage,
+                name: city.cityName,
+                rate: Double(city.cityRate),
+                latitude: city.latitude,
+                longitude: city.longitude,
+                isFavorite: false
+            )
+        }
+        refreshFavorites()
     }
 
 }

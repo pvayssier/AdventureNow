@@ -30,6 +30,8 @@ class FavoritesTableViewController: UITableViewController {
 
     // MARK: - Private Properties
 
+    private let refreshController = UIRefreshControl()
+
     private let viewModel: FavoritesViewModel
 
     // MARK: - Private Methods
@@ -38,7 +40,7 @@ class FavoritesTableViewController: UITableViewController {
     private func didTapFavoriteButton(sender: FavoriteButton) {
         let point: CGPoint = sender.convert(CGPoint.zero, to: tableView)
         guard let indexPath = tableView.indexPathForRow(at: point) else { return }
-        guard let cell = tableView.cellForRow(at: indexPath) as? FavoriteCitiesCell else { return }
+        guard let cell = tableView.cellForRow(at: indexPath) as? FavoritesCitiesCell else { return }
         let button = sender
         if button == cell.favoriteButton {
             let cityId = cell.cityId
@@ -49,12 +51,20 @@ class FavoritesTableViewController: UITableViewController {
 
     private func configureUI() {
         tableView.register(
-            FavoriteCitiesCell.self,
-            forCellReuseIdentifier: FavoriteCitiesCell.reuseIdentifier
+            FavoritesCitiesCell.self,
+            forCellReuseIdentifier: FavoritesCitiesCell.reuseIdentifier
         )
         tableView.delaysContentTouches = false
         tableView.backgroundColor = UIColor(named: "backgroundColor")
-//        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
+        refreshController.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+        tableView.addSubview(refreshController)
+    }
+
+    @objc private func refreshTableView() {
+        viewModel.refreshFavorites()
+        tableView.reloadData()
+        refreshController.endRefreshing()
     }
 
     // MARK: - TableView DataSource
@@ -69,8 +79,8 @@ class FavoritesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: FavoriteCitiesCell.reuseIdentifier
-        ) as? FavoriteCitiesCell else {
+            withIdentifier: FavoritesCitiesCell.reuseIdentifier
+        ) as? FavoritesCitiesCell else {
             return UITableViewCell()
         }
         let city = viewModel.favoriteCities[indexPath.section]

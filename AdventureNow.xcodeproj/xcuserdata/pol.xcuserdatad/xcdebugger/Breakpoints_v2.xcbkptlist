@@ -796,8 +796,8 @@
             filePath = "AdventureNow/FavoritesCity/FavoritesTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
             <Locations>
@@ -859,8 +859,8 @@
             filePath = "AdventureNow/FavoritesCity/FavoritesTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -877,7 +877,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "updateFavorites()"
+            landmarkName = "refreshFavorites()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -923,8 +923,8 @@
             filePath = "AdventureNow/cityInformation/CityInformationTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -1002,8 +1002,8 @@
             filePath = "AdventureNow/cityInformation/cells/WeatherForecastCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "configure(image:date:temperature:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1018,8 +1018,8 @@
             filePath = "AdventureNow/cityInformation/cells/WeatherForecastCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "configure(image:date:temperature:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1034,25 +1034,9 @@
             filePath = "AdventureNow/Core/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0D90A8FA-F125-4F9E-97C9-1AC03ECE58D5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AdventureNow/Home/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "didTapFavoriteButton(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1066,10 +1050,10 @@
             filePath = "AdventureNow/Core/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "AppDelegate"
-            landmarkType = "3">
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "application(_:didDiscardSceneSessions:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "3AC77907-55E8-48BB-95BA-78D6EE427206 - 295a8a3245a63cb1"
@@ -1107,16 +1091,756 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7540B0D2-5E86-4594-9838-82149E5AF817"
+            uuid = "F1193512-BA26-4856-A8AE-3F722A07DCAC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/cityInformation/CityInformationTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F1193512-BA26-4856-A8AE-3F722A07DCAC - e2075700851676c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.CityInformationTableViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/cityInformation/CityInformationTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "1916">
+               </Location>
+               <Location
+                  uuid = "F1193512-BA26-4856-A8AE-3F722A07DCAC - e207570085167705"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.CityInformationTableViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/cityInformation/CityInformationTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "1916">
+               </Location>
+               <Location
+                  uuid = "F1193512-BA26-4856-A8AE-3F722A07DCAC - e207570085167705"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.CityInformationTableViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/cityInformation/CityInformationTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "2032">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "77359489-05CE-4E17-9432-8E6CA851726D"
             shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/cityInformation/CityInformationTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "77359489-05CE-4E17-9432-8E6CA851726D - 3425c61519927b71"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.CityInformationTableViewController.viewDidAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/cityInformation/CityInformationTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "77359489-05CE-4E17-9432-8E6CA851726D - 3425c61519927b71"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.CityInformationTableViewController.viewDidAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/cityInformation/CityInformationTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1924A74D-FA63-4E8B-8157-3BDE5FF3DD15"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/cityInformation/CityInformationTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "getWeatherForecast(lat:long:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1924A74D-FA63-4E8B-8157-3BDE5FF3DD15 - 1477039b29382cc6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.CityInformationTableViewController.getWeatherForecast(lat: Swift.Double, long: Swift.Double, completionHandler: (Swift.Array&lt;AdventureNow.WeatherData&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/cityInformation/CityInformationTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "364">
+               </Location>
+               <Location
+                  uuid = "1924A74D-FA63-4E8B-8157-3BDE5FF3DD15 - 1477039b29382d04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.CityInformationTableViewController.getWeatherForecast(lat: Swift.Double, long: Swift.Double, completionHandler: (Swift.Array&lt;AdventureNow.WeatherData&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/cityInformation/CityInformationTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "364">
+               </Location>
+               <Location
+                  uuid = "1924A74D-FA63-4E8B-8157-3BDE5FF3DD15 - 1477039b29382d04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.CityInformationTableViewController.getWeatherForecast(lat: Swift.Double, long: Swift.Double, completionHandler: (Swift.Array&lt;AdventureNow.WeatherData&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/cityInformation/CityInformationTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "464">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8949C9F2-9853-4FEF-A348-E6613A3453A6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/cityInformation/CityInformationTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "getWeatherForecast(lat:long:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8949C9F2-9853-4FEF-A348-E6613A3453A6 - b6ca7ad76c5b78a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (AdventureNow.List) -&gt; AdventureNow.WeatherData in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AdventureNow.CityInformationTableViewController.getWeatherForecast(lat: Swift.Double, long: Swift.Double, completionHandler: (Swift.Array&lt;AdventureNow.WeatherData&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/cityInformation/CityInformationTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "8949C9F2-9853-4FEF-A348-E6613A3453A6 - b6ca7ad76c5b78e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (AdventureNow.List) -&gt; AdventureNow.WeatherData in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AdventureNow.CityInformationTableViewController.getWeatherForecast(lat: Swift.Double, long: Swift.Double, completionHandler: (Swift.Array&lt;AdventureNow.WeatherData&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/cityInformation/CityInformationTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D6BB4E18-E9E4-42DD-B827-E07AEF6B0033"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "didTapFavoriteButton(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D6BB4E18-E9E4-42DD-B827-E07AEF6B0033 - 3c44a675bb09358b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "660">
+               </Location>
+               <Location
+                  uuid = "D6BB4E18-E9E4-42DD-B827-E07AEF6B0033 - 3c44a675bb09358b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "628">
+               </Location>
+               <Location
+                  uuid = "D6BB4E18-E9E4-42DD-B827-E07AEF6B0033 - 3c44a675bb09358b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "736">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "773DC5FD-85DC-48CB-8F0C-2242C35A0EB4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "didTapFavoriteButton(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "773DC5FD-85DC-48CB-8F0C-2242C35A0EB4 - 3c44a675bb0935aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "616">
+               </Location>
+               <Location
+                  uuid = "773DC5FD-85DC-48CB-8F0C-2242C35A0EB4 - 3c44a675bb0935aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "588">
+               </Location>
+               <Location
+                  uuid = "773DC5FD-85DC-48CB-8F0C-2242C35A0EB4 - 3c44a675bb0935aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "696">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B9E71835-82EA-49D5-8A4A-C7B2255A86C6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "didTapFavoriteButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C2C763D3-D67C-45B3-A87F-E62805E9029C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "didTapFavoriteButton(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C2C763D3-D67C-45B3-A87F-E62805E9029C - 3c44a675bb093770"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1096">
+               </Location>
+               <Location
+                  uuid = "C2C763D3-D67C-45B3-A87F-E62805E9029C - 3c44a675bb093770"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1056">
+               </Location>
+               <Location
+                  uuid = "C2C763D3-D67C-45B3-A87F-E62805E9029C - 3c44a675bb093770"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1164">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "72C367C3-9870-434E-B1A3-65EACAF57D50"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "didTapFavoriteButton(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "72C367C3-9870-434E-B1A3-65EACAF57D50 - 3c44a675bb09381f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "1592">
+               </Location>
+               <Location
+                  uuid = "72C367C3-9870-434E-B1A3-65EACAF57D50 - 3c44a675bb09381f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "1544">
+               </Location>
+               <Location
+                  uuid = "72C367C3-9870-434E-B1A3-65EACAF57D50 - 3c44a675bb09381f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "1652">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44499E06-4990-4B18-97DB-798D69F298A1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "didTapFavoriteButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "67AF22E6-80C1-4126-86DF-1916D8225B6E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "didTapFavoriteButton(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "67AF22E6-80C1-4126-86DF-1916D8225B6E - 3c44a675bb093507"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "208">
+               </Location>
+               <Location
+                  uuid = "67AF22E6-80C1-4126-86DF-1916D8225B6E - 3c44a675bb093507"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "488">
+               </Location>
+               <Location
+                  uuid = "67AF22E6-80C1-4126-86DF-1916D8225B6E - f894d1497e43d81c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (AdventureNow.SuggestCity) -&gt; Swift.Bool in AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "67AF22E6-80C1-4126-86DF-1916D8225B6E - 3c44a675bb093507"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "67AF22E6-80C1-4126-86DF-1916D8225B6E - 3c44a675bb093507"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "464">
+               </Location>
+               <Location
+                  uuid = "67AF22E6-80C1-4126-86DF-1916D8225B6E - 3c44a675bb093507"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  uuid = "67AF22E6-80C1-4126-86DF-1916D8225B6E - 3c44a675bb093507"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "572">
+               </Location>
+               <Location
+                  uuid = "67AF22E6-80C1-4126-86DF-1916D8225B6E - f894d1497e43d81c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (AdventureNow.SuggestCity) -&gt; Swift.Bool in AdventureNow.HomeViewModel.didTapFavoriteButton(AdventureNow.SuggestCity) -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "184">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D5E2173-CB20-4B54-92A2-9833D43755C1"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AdventureNow/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "viewDidAppear()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7D5E2173-CB20-4B54-92A2-9833D43755C1 - fb773af858811b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewController.viewDidAppear() -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "7D5E2173-CB20-4B54-92A2-9833D43755C1 - fb773af85881156"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdventureNow.HomeViewController.viewDidAppear() -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "136">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1704188D-4DE4-4C70-AADD-C54A4A2C305A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/Home/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "didTapTryAgainButton()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1704188D-4DE4-4C70-AADD-C54A4A2C305A - 674f3b7e2835464a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in AdventureNow.HomeViewController.didTapTryAgainButton() -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "1704188D-4DE4-4C70-AADD-C54A4A2C305A - 4cdb322f3f5bfb5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Bool) -&gt; () in AdventureNow.HomeViewController.didTapTryAgainButton() -&gt; ()"
+                  moduleName = "AdventureNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pol/Documents/swift/AdventureNow/AdventureNow/Home/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD2146DD-1928-486F-977A-AA0F89D8F12A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdventureNow/Home/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "didTapTryAgainButton()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

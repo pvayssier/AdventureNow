@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2039E8029EFD162004CC5E0 /* FavoritesCities+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2039E7E29EFD162004CC5E0 /* FavoritesCities+CoreDataClass.swift */; };
+		E2039E8129EFD162004CC5E0 /* FavoritesCities+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2039E7F29EFD162004CC5E0 /* FavoritesCities+CoreDataProperties.swift */; };
 		E22BFE0829E2AD1F0034581D /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22BFE0729E2AD1F0034581D /* FavoritesViewModel.swift */; };
 		E22BFE0B29E566610034581D /* CityInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22BFE0A29E566610034581D /* CityInformationTableViewController.swift */; };
 		E22BFE0E29E567BA0034581D /* FullImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22BFE0D29E567BA0034581D /* FullImageCell.swift */; };
@@ -21,10 +23,8 @@
 		E26282E629EEAFB4001BDD2C /* DestinationAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26282E529EEAFB4001BDD2C /* DestinationAPIService.swift */; };
 		E26282E929EEDC63001BDD2C /* FavoritesCitiesDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E26282E729EEDC63001BDD2C /* FavoritesCitiesDataBase.xcdatamodeld */; };
 		E26282EB29EEDF0C001BDD2C /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26282EA29EEDF0C001BDD2C /* DatabaseService.swift */; };
-		E26282ED29EEE6E8001BDD2C /* FavCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26282EC29EEE6E8001BDD2C /* FavCity.swift */; };
 		E26B864629CBA7890037BDA3 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B864529CBA7890037BDA3 /* FavoriteButton.swift */; };
 		E291960929CA5795007CCD55 /* SuggestCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291960829CA5795007CCD55 /* SuggestCityTableViewCell.swift */; };
-		E292CE1029EEF5410073A761 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E292CE0F29EEF5410073A761 /* test.swift */; };
 		E2B442A929CC9B6E00AAA93D /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B442A829CC9B6E00AAA93D /* TabBarItem.swift */; };
 		E2B442AB29CC9E0E00AAA93D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2B442AA29CC9E0E00AAA93D /* Main.storyboard */; };
 		E2B442AD29CCADB600AAA93D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B442AC29CCADB600AAA93D /* HomeViewController.swift */; };
@@ -36,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E2039E7E29EFD162004CC5E0 /* FavoritesCities+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesCities+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E2039E7F29EFD162004CC5E0 /* FavoritesCities+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesCities+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E22BFE0729E2AD1F0034581D /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		E22BFE0A29E566610034581D /* CityInformationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInformationTableViewController.swift; sourceTree = "<group>"; };
 		E22BFE0D29E567BA0034581D /* FullImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageCell.swift; sourceTree = "<group>"; };
@@ -52,10 +54,8 @@
 		E26282E529EEAFB4001BDD2C /* DestinationAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationAPIService.swift; sourceTree = "<group>"; };
 		E26282E829EEDC63001BDD2C /* FavoritesCitiesDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoritesCitiesDataBase.xcdatamodel; sourceTree = "<group>"; };
 		E26282EA29EEDF0C001BDD2C /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
-		E26282EC29EEE6E8001BDD2C /* FavCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCity.swift; sourceTree = "<group>"; };
 		E26B864529CBA7890037BDA3 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		E291960829CA5795007CCD55 /* SuggestCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestCityTableViewCell.swift; sourceTree = "<group>"; };
-		E292CE0F29EEF5410073A761 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		E2B442A829CC9B6E00AAA93D /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		E2B442AA29CC9E0E00AAA93D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E2B442AC29CCADB600AAA93D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +99,8 @@
 		E24099AD29C850F100015FEC = {
 			isa = PBXGroup;
 			children = (
+				E2039E7E29EFD162004CC5E0 /* FavoritesCities+CoreDataClass.swift */,
+				E2039E7F29EFD162004CC5E0 /* FavoritesCities+CoreDataProperties.swift */,
 				E24099B829C850F100015FEC /* AdventureNow */,
 				E24099B729C850F100015FEC /* Products */,
 			);
@@ -138,9 +140,7 @@
 				E2F2347129ED7B32003E88AD /* FetchSuggestedCitiesModel.swift */,
 				E2B442A829CC9B6E00AAA93D /* TabBarItem.swift */,
 				E2F2346A29EBEDCA003E88AD /* FavoriteCitiesModel.swift */,
-				E26282EC29EEE6E8001BDD2C /* FavCity.swift */,
 				E26282E729EEDC63001BDD2C /* FavoritesCitiesDataBase.xcdatamodeld */,
-				E292CE0F29EEF5410073A761 /* test.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,14 +322,14 @@
 				E22BFE0B29E566610034581D /* CityInformationTableViewController.swift in Sources */,
 				E258230229DE06B20090DBF9 /* FavoritesTableViewController.swift in Sources */,
 				E22BFE0829E2AD1F0034581D /* FavoritesViewModel.swift in Sources */,
+				E2039E8129EFD162004CC5E0 /* FavoritesCities+CoreDataProperties.swift in Sources */,
+				E2039E8029EFD162004CC5E0 /* FavoritesCities+CoreDataClass.swift in Sources */,
 				E22BFE0E29E567BA0034581D /* FullImageCell.swift in Sources */,
 				E2F2347229ED7B32003E88AD /* FetchSuggestedCitiesModel.swift in Sources */,
 				E2B442AD29CCADB600AAA93D /* HomeViewController.swift in Sources */,
-				E26282ED29EEE6E8001BDD2C /* FavCity.swift in Sources */,
 				E2604C2A29E6AB3B009FF50E /* WeatherForecastCell.swift in Sources */,
 				E2F2346B29EBEDCA003E88AD /* FavoriteCitiesModel.swift in Sources */,
 				E24099BA29C850F100015FEC /* AppDelegate.swift in Sources */,
-				E292CE1029EEF5410073A761 /* test.swift in Sources */,
 				E26282EB29EEDF0C001BDD2C /* DatabaseService.swift in Sources */,
 				E2B4F24F29CB630C007F97F8 /* HomeViewModel.swift in Sources */,
 				E26282E929EEDC63001BDD2C /* FavoritesCitiesDataBase.xcdatamodeld in Sources */,
@@ -485,6 +485,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,6 +519,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

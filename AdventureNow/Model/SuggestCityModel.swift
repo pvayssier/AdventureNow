@@ -19,12 +19,13 @@ struct SuggestCity {
 
     static var all: [SuggestCity] = []
 
-    init(apiID: String, image: String, name: String, rate: Double, latitude: Double, longitude: Double) {
+    init(apiID: String, image: String, name: String, rate: Double, latitude: Double, longitude: Double, isFavorite: Bool = false) {
         self.apiID = apiID
         self.cityName = name
         self.cityImage = image
         self.cityRate = Int(rate.rounded())
         self.longitude = longitude
         self.latitude = latitude
+        self.isFavorite = isFavorite
     }
 }

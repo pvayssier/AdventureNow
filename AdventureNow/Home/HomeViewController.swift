@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class HomeViewController: UIViewController {
     internal init(viewModel: HomeViewModel) {
@@ -17,56 +18,27 @@ class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private var loaderView: UIView?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         showLoadingView()
-        viewModel.viewDidLoad()
-        hideLoadingView()
         configureUI()
-    }
-
-    private func showLoadingView() {
-        let loaderView = UIView(frame: UIScreen.main.bounds)
-        loaderView.backgroundColor = .white
-        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-        activityIndicator.center = loaderView.center
-        loaderView.addSubview(activityIndicator)
-        view.addSubview(loaderView)
-        activityIndicator.startAnimating()
-
-        self.loaderView = loaderView
-    }
-
-    private func hideLoadingView() {
-        loaderView?.removeFromSuperview()
-        loaderView = nil
+        setupObservers()
+        viewModel.viewDidLoad()
     }
 
     func viewDidAppear() {
         super.viewDidAppear(true)
         viewModel.viewDidAppear()
         tableView.reloadData()
-
     }
 
     // MARK: - Private Properties
 
-    private let viewModel: HomeViewModel
+    private let refreshControl = UIRefreshControl()
 
-    @objc
-    private func didTapFavoriteButton(sender: FavoriteButton) {
-        let point: CGPoint = sender.convert(CGPoint.zero, to: tableView)
-        guard let indexPath = tableView.indexPathForRow(at: point) else { return }
-        guard let cell = tableView.cellForRow(at: indexPath) as? SuggestCityTableViewCell else { return }
-        let button = sender
-        if button == cell.favoriteButton {
-            let city = viewModel.suggestCity[indexPath.section]
-            viewModel.didTapFavoriteButton(city)
-            tableView.reloadData()
-        }
-    }
+    private var loaderView: UIView?
+
+    private let viewModel: HomeViewModel
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
@@ -82,7 +54,22 @@ class HomeViewController: UIViewController {
         return tableView
     }()
 
+    private var subscriptions = Set<AnyCancellable>()
+
     // MARK: - Private Methods
+
+    @objc
+    private func didTapFavoriteButton(sender: FavoriteButton) {
+        let point: CGPoint = sender.convert(CGPoint.zero, to: tableView)
+        guard let indexPath = tableView.indexPathForRow(at: point) else { return }
+        guard let cell = tableView.cellForRow(at: indexPath) as? SuggestCityTableViewCell else { return }
+        let button = sender
+        if button == cell.favoriteButton {
+            let city = viewModel.suggestCity[indexPath.section]
+            viewModel.didTapFavoriteButton(city)
+            tableView.reloadData()
+        }
+    }
 
     private func configureUI() {
         view.backgroundColor = UIColor(named: "backgroundColor")
@@ -91,15 +78,6 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         view.addSubview(tableView)
 
-        let closeButton = UIBarButtonItem(
-            image: UIImage(systemName: "arrow.counterclockwise"),
-            style: .done,
-            target: self,
-            action: #selector(didReloadDataButtonPressed)
-        )
-
-        self.navigationItem.rightBarButtonItem = closeButton
-
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -107,10 +85,68 @@ class HomeViewController: UIViewController {
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
 
+        refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+
     }
-    @objc private func didReloadDataButtonPressed() {
-        viewModel.viewDidAppear()
+    private func showAlert() {
+        let alertController = UIAlertController(
+            title: "No Internet Connection",
+            message: "Please check your internet connection and try again.",
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "Try Again", style: .default) { [weak self] _ in
+            DestinationAPIService.shared.hasInternetConnection()
+            self?.didTapTryAgainButton()
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+    }
+
+    @objc private func refreshTableView() {
+        viewDidLoad()
+    }
+
+    private func showLoadingView() {
+        let loaderView = UIView(frame: UIScreen.main.bounds)
+        loaderView.backgroundColor = .white
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        activityIndicator.center = loaderView.center
+        loaderView.addSubview(activityIndicator)
+        view.addSubview(loaderView)
+        loaderView.backgroundColor = UIColor(named: "backgroundColor")
+        activityIndicator.startAnimating()
+
+        self.loaderView = loaderView
+    }
+
+    private func hideLoadingView() {
+        loaderView?.isHidden = true
+        viewModel.refreshDestinations()
         tableView.reloadData()
+    }
+
+    @objc private func didTapTryAgainButton() {
+        DestinationAPIService.shared.$didHaveNetwork.sink { [weak self] hasInternetConnection in
+            if hasInternetConnection {
+                self?.showLoadingView()
+                DestinationAPIService.shared.testFetchSuggestedCities()
+                self?.configureUI()
+                self?.setupObservers()
+                self?.viewModel.viewDidLoad()
+            }
+        }.store(in: &subscriptions)
+    }
+
+    private func setupObservers() {
+        DestinationAPIService.shared.$didHaveNetwork.sink { [weak self] didHaveNetwork in
+            if !didHaveNetwork {
+                self?.showAlert()
+            }
+        }.store(in: &subscriptions)
+        DestinationAPIService.shared.$isLoading.sink { [weak self] isLoading in
+            isLoading ? self?.showLoadingView() : self?.hideLoadingView()
+        }.store(in: &subscriptions)
     }
 
 }
@@ -136,7 +172,7 @@ extension HomeViewController: UITableViewDataSource {
             image: city.cityImage,
             name: city.cityName,
             rate: city.cityRate,
-            isFavorite: false,
+            isFavorite: city.isFavorite,
             id: city.id
         )
 
@@ -164,24 +200,4 @@ extension HomeViewController: UITableViewDelegate {
         present(navigationController, animated: true)
     }
 
-}
-
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int, opacity: CGFloat = 1.0) {
-        self.init(
-            red: CGFloat(red) / 255.0,
-            green: CGFloat(green) / 255.0,
-            blue: CGFloat(blue) / 255.0,
-            alpha: opacity
-        )
-    }
-
-    convenience init(rgb: Int, opacity: CGFloat = 1.0) {
-        self.init(
-            red: (rgb >> 16) & 0xFF,
-            green: (rgb >> 8) & 0xFF,
-            blue: rgb & 0xFF,
-            opacity: opacity
-        )
-    }
 }

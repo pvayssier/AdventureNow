@@ -42,7 +42,7 @@ class WeatherForecastCell: UITableViewCell {
         label.clipsToBounds = true
         label.textAlignment = .left
         label.font = UIFont(name: "Hiragino Sans W6", size: 15)
-        label.textColor = .black
+        label.textColor = UIColor(named: "textColor")
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -53,7 +53,7 @@ class WeatherForecastCell: UITableViewCell {
         label.clipsToBounds = true
         label.textAlignment = .right
         label.font = UIFont(name: "Hiragino Sans W6", size: 15)
-        label.textColor = .black
+        label.textColor = UIColor(named: "textColor")
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
 
@@ -72,9 +72,8 @@ class WeatherForecastCell: UITableViewCell {
         contentView.addSubview(weatherImage)
         contentView.addSubview(tempLabel)
 
-        backgroundColor = .white.withAlphaComponent(0.6)
+        backgroundColor = .clear
 
-        contentView.backgroundColor = .clear
         NSLayoutConstraint.activate([
             dayLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             dayLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
@@ -96,13 +95,7 @@ class WeatherForecastCell: UITableViewCell {
     func configure(image: String, date: String, temperature: Double) {
         self.weatherImage.image = UIImage(named: image)
         self.dayLabel.text = getDayFromDate(from: date)
-        self.tempLabel.text = String(roundl(temperature * 10) / 10)
+        self.tempLabel.text = String(round(temperature * 10) / 10)
     }
-
-    //    override func setSelected(_ selected: Bool, animated: Bool) {
-    //        super.setSelected(selected, animated: animated)
-    //
-    //        // Configure the view for the selected state
-    //    }
 
 }
